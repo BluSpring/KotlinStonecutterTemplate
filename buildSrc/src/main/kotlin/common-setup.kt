@@ -64,7 +64,7 @@ fun Project.setupCommon(module: String) {
                 projectId = rootProject.property("publishing.modrinth").toString()
                 accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 
-                minecraftVersions.addAll(common.project.mod.prop("supported_versions").split(","))
+                minecraftVersions.addAll((property("supported_versions")!! as String).split(","))
 
                 if (project.path.contains("fabric")) {
                     requires {
@@ -84,7 +84,7 @@ fun Project.setupCommon(module: String) {
                 projectId = rootProject.property("publishing.curseforge").toString()
                 accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
 
-                minecraftVersions.addAll(common.project.mod.prop("supported_versions").split(","))
+                minecraftVersions.addAll((property("supported_versions")!! as String).split(","))
 
                 if (module == "fabric") {
                     requires {
@@ -153,8 +153,8 @@ fun Project.setupCommon(module: String) {
             "mod_version" to commonProject.mod.version,
             "mod_sources" to commonProject.mod.sources,
 
-            "minecraft_version_range_fabric" to commonProject.mod.prop("minecraft_version_range_fabric"),
-            "minecraft_version_range_forge" to commonProject.mod.prop("minecraft_version_range_forge"),
+            "minecraft_version_range_fabric" to commonProject.property("minecraft_version_range_fabric")!!,
+            "minecraft_version_range_forge" to commonProject.property("minecraft_version_range_forge")!!,
         )
     }
 }

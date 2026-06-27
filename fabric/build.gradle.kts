@@ -24,4 +24,6 @@ dependencies {
     moddedApi(libs.fabric.kotlin)
     api(libs.mixinextras.fabric)
     annotationProcessor(libs.mixinextras.fabric)
+
+    moddedApi("net.fabricmc.fabric-api:fabric-api:${property("fabric_api")}")
 }
