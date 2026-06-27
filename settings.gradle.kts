@@ -39,4 +39,6 @@ stonecutter {
     }
 }
 
+includeBuild("build-logic")
+
 rootProject.name = "KotlinStonecutterTemplate"

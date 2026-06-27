@@ -3,10 +3,13 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
 
 plugins {
     id("dev.kikugie.stonecutter")
+    alias(libs.plugins.fabric.loom) apply false
+    alias(libs.plugins.moddevgradle) version libs.versions.moddevgradle.get() apply false
     alias(libs.plugins.kotlin) apply false
     alias(libs.plugins.mod.publish) apply false
     alias(libs.plugins.shadow) apply false
     alias(libs.plugins.fletching.table) apply false
+    id("multiplatform")
 }
 
 stonecutter active "1.21.1"
