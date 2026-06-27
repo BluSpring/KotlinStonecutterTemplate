@@ -22,6 +22,8 @@ if (stonecutter.eval(mcVersion, "<=1.20.1")) {
 
     project.extensions.configure<NeoForgeExtension> {
         neoFormVersion = tryFindNeoFormVersion(mcVersion)!!
+
+        configureModDev(this, "common")
     }
 }
 
